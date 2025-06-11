@@ -38,6 +38,6 @@ func shoot():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = $Marker2D.global_position
 	bullet_instance.rotation = global_rotation 
-	get_parent().add_child(bullet_instance)
+	add_sibling(bullet_instance)
 	await get_tree().create_timer(fire_rate).timeout
 	can_shoot = true
