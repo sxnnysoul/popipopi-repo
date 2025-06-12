@@ -18,11 +18,7 @@ func get_input() -> void:
 	input_look_direction = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	
 	
-func _physics_process(delta: float) -> void:
-	get_input()
-	move_and_slide()
-
-func _process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	mouse_position = get_global_mouse_position()
 	if last_mouse_position != mouse_position:
 		look_at(mouse_position)
@@ -33,6 +29,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("fire") and can_shoot:
 		shoot()
 		pass
+	
+	get_input()
+	move_and_slide()
+
 func shoot():
 	can_shoot = false
 	var bullet_instance = bullet.instantiate()
