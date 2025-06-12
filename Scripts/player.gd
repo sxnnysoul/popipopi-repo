@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("fire") and can_shoot:
 		shoot()
-		
+		pass
 func shoot():
 	can_shoot = false
 	var bullet_instance = bullet.instantiate()
