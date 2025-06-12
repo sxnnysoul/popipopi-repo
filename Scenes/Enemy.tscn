@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgp70qg7otb5l"]
+
+[ext_resource type="Script" uid="uid://bqqvkqalj1d72" path="res://Scripts/enemy.gd" id="1_m1htj"]
+
+[sub_resource type="Curve" id="Curve_7fd37"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_7fd37"]
+width = 100
+curve = SubResource("Curve_7fd37")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1htj"]
+size = Vector2(100, 100)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_m1htj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 100)
+texture = SubResource("CurveTexture_7fd37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_m1htj")
